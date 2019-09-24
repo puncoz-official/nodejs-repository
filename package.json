@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puncoz-official/nodejs-repository.git"
+  },
+  "keywords": [
+    "nodejs",
+    "repository",
+    "repository",
+    "pattern",
+    "knexjs",
+    "objection",
+    "orm"
+  ],
+  "author": "Puncoz Nepal <info@puncoz.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puncoz-official/nodejs-repository/issues"
+  },
+  "homepage": "https://github.com/puncoz-official/nodejs-repository#readme"
+}
