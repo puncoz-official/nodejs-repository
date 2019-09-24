@@ -1,10 +1,28 @@
 {
   "name": "nodejs-repository",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "NodeJs - Repositories to abstract the database layer. Knex.js and Objection Orm",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean-modules": "rimraf node_modules",
+    "clean": "rimraf dist npm-debug.log* yarn-error.log*",
+    "build:example": "cd ./examples && yarn && yarn build",
+    "watch:example": "yarn --cwd ./examples start",
+    "build:plugin": "yarn clean && rollup -c",
+    "watch:plugin": "rollup -c --watch",
+    "build": "npm-run-all build:*",
+    "start": "npm-run-all -p watch:*",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -24,5 +42,17 @@
   "bugs": {
     "url": "https://github.com/puncoz-official/nodejs-repository/issues"
   },
-  "homepage": "https://github.com/puncoz-official/nodejs-repository#readme"
+  "homepage": "https://github.com/puncoz-official/nodejs-repository#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.21.4",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.3"
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
